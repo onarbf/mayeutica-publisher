@@ -7,7 +7,7 @@
         "config": { "outputDirectory": "dist" }
       }
     ],
-    "rewrites": [
+    "routes": [
       { "source": "/(.*)", "destination": "/api" }
     ]
   }

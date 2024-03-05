@@ -200,6 +200,10 @@ app.get('/get-hello',async (req,res)=>{
     res.json('hi')
 })
 
+app.get('/',async (req,res)=>{
+    res.json('oh hello there!')
+})
+
 
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);

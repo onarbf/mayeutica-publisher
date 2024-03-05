@@ -131,6 +131,7 @@ export async function newCompleteArticle({topic}:{topic: string}): Promise<{titl
     console.log('Sending step 3.')
     await checkStatus({threadId, runId: run3Id,  status: 'requires_action'});
     const runSteps = await getRunSteps({threadId,runId: run3Id});
+    // @ts-expect-error error
     const argumentObj = runSteps.body.data[0].step_details.tool_calls[0].function.arguments;
     const articleObj = JSON.parse(argumentObj);
 
@@ -241,6 +242,7 @@ export async function returnArticleFromOpenAI({topic}: {topic: Topic}): Promise<
     const runId = topic.OpenAIInfo!.runId;
     try {
         const runSteps = await getRunSteps({threadId,runId: runId});
+        // @ts-expect-error error
         const argumentObj = runSteps.body.data[0].step_details.tool_calls[0].function.arguments;
         console.log('argumentObj',argumentObj)
         console.log('typeof argumentObj', typeof argumentObj)

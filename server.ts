@@ -197,18 +197,7 @@ app.get('/get-topic', async (req, res) => {
 
 
 app.get('/get-hello',async (req,res)=>{
-
-    res.json({
-        OPENAI_API_KEY:process.env.OPENAI_API_KEY,
-        OPENAI_ASSISTANTID:process.env.OPENAI_ASSISTANTID,
-        STRAPI_PASSWORD:process.env.STRAPI_PASSWORD,
-        STRAPI_IDENTIFIER:process.env.STRAPI_IDENTIFIER,
-        NEXT_PUBLIC_STRAPI_API_KEY:process.env.NEXT_PUBLIC_STRAPI_API_KEY,
-        BRAVE_API_ENDPOINT:process.env.BRAVE_API_ENDPOINT,
-        BRAVE_API_KEY:process.env.BRAVE_API_KEY,
-        NEXT_PUBLIC_API_ENDPOINT: process.env.NEXT_PUBLIC_API_ENDPOINT
-
-    });
+    res.json('hi')
 })
 
 

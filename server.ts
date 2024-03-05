@@ -1,7 +1,7 @@
 import 'dotenv/config'
 
 import express from 'express';
-import {  checkStatusOnce, newCompleteArticle, publishArticle, returnArticleFromOpenAI, scrapingWebsiteNews, startAnArticle, writingArticle } from './utils/articles';
+import {  checkStatusOnce, publishArticle, returnArticleFromOpenAI, scrapingWebsiteNews, startAnArticle, writingArticle } from './utils/articles';
 import { createTopicsFromEFE, getTopic, updateTopic } from './utils/topics';
 import { getHtmlFromUrlAsText, getNewsFromInternet } from './utils/webscrapers';
 import { createImageFromDescription } from './utils/images';
@@ -198,16 +198,17 @@ app.get('/get-topic', async (req, res) => {
 
 app.get('/get-hello',async (req,res)=>{
 
-/*     const threadId = req.query.threadId as string;
-    const runId = req.query.runId as string;
+    res.json({
+        OPENAI_API_KEY:process.env.OPENAI_API_KEY,
+        OPENAI_ASSISTANTID:process.env.OPENAI_ASSISTANTID,
+        STRAPI_PASSWORD:process.env.STRAPI_PASSWORD,
+        STRAPI_IDENTIFIER:process.env.STRAPI_IDENTIFIER,
+        NEXT_PUBLIC_STRAPI_API_KEY:process.env.NEXT_PUBLIC_STRAPI_API_KEY,
+        BRAVE_API_ENDPOINT:process.env.BRAVE_API_ENDPOINT,
+        BRAVE_API_KEY:process.env.BRAVE_API_KEY,
+        NEXT_PUBLIC_API_ENDPOINT: process.env.NEXT_PUBLIC_API_ENDPOINT
 
-    const runStatus = await getRunStatus({threadId,runId})
-    if(runStatus.status === 'completed'){
-        const messages = await getMessagesInThread({threadId});
-        res.json(messages);
-        return    
-    } */
-    res.json('Hello World!');
+    });
 })
 
 

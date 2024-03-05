@@ -176,6 +176,7 @@ export async function scrapingWebsiteNews({topic}:{topic: Topic}){
     const articlesFromInternet = await getNewsFromInternet({search: topic.title!});
 
     const stage = topic.OpenAIInfo!.stage;
+    
     const articles = articlesFromInternet.results;
         console.log('Writing article nº' + (stage));
         console.log(articles[stage]);
